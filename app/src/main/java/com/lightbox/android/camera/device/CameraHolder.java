@@ -122,6 +122,14 @@ public abstract class CameraHolder {
     
     public abstract int getRearFacingCameraId();
 
+    public int getNextCameraId(int cameraId) {
+        if (cameraId + 1 == mNumberOfCameras) {
+            return 0;
+        }
+
+        return cameraId + 1;
+    }
+
     public abstract boolean isFrontFacing(int cameraId);
     
     public abstract int getCameraOrientation(int cameraId, int orientationSensorValue);

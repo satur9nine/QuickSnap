@@ -1262,13 +1262,8 @@ public class Camera extends NoSearchActivity implements View.OnClickListener,
             	onSharedPreferenceChanged();
             	break;
             case R.id.btn_camera_type:
-            	if (CameraHolder.instance().isFrontFacing(mCameraId)) {
-            		int rearCamId = CameraHolder.instance().getRearFacingCameraId();
-            		switchCameraId(rearCamId);
-            	} else {
-            		int frontCamId = CameraHolder.instance().getFrontFacingCameraId();
-            		switchCameraId(frontCamId);
-            	}
+              // Hacked to support multiple cameras
+              switchCameraId(CameraHolder.instance().getNextCameraId(mCameraId));
             	break;
         }
     }

@@ -69,6 +69,10 @@ public class GingerbreadCameraHolder extends CameraHolder {
         if (mCameraDevice == null) {
             try {
                 Log.v(TAG, "open camera " + cameraId);
+                if (cameraId >= android.hardware.Camera.getNumberOfCameras()) {
+                  Log.d(TAG, "bad camera id");
+                }
+
                 mCameraDevice = android.hardware.Camera.open(cameraId);
                 mCameraId = cameraId;
             } catch (RuntimeException e) {
